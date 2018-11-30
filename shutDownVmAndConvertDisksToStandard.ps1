@@ -5,13 +5,13 @@
 #Fill these variables before running the script
 #-----------------------
 #name of subscription
-$sub = "DONOTDELETE"
+$sub = "Visual Studio Enterprise"
 
 #name of resource group
-$rg = "testvm3489"
+$rg = "DSCtestRG"
 
 #Name of vm
-$vmName = "testvm234"
+$vmName = "dsctestVM"
 #-----------------------
 
 #select subscription
