@@ -8,10 +8,10 @@
 $sub = "DONOTDELETE"
 
 #name of resource group
-$rg = "testvm3489"
+$rg = "azureBackupSrvRG"
 
 #Name of vm
-$vmName = "testvm234"
+$vmName = "azureBackupSrv"
 #-----------------------
 
 #select subscription
