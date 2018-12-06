@@ -1,30 +1,33 @@
 login-azurermaccount
 
+#-----------------------#
+#Variables
+$nsgName = "BackupNSG"
 
-$nsg = Get-AzureRmNetworkSecurityGroup -Name loadtest2-nsg -ResourceGroupName loadtest2rg
+$RGName = "azureBackupSrvRG"
+
+#-----------------------#
+
+$nsg = Get-AzureRmNetworkSecurityGroup -Name $nsgName -ResourceGroupName $RGName
 
 
-Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name steamserverbrowser `
-    -Description "steamserverbrowser" -Access "Allow" -Protocol * -Direction "Inbound" `
+Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name ssl `
+    -Description "ssl" -Access "Allow" -Protocol * -Direction "Inbound" `
     -Priority "100" -SourceAddressPrefix "Internet" -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 27015
+    -DestinationAddressPrefix * -DestinationPortRange 443
 
-add-azurermnetworksecurityruleconfig -NetworkSecurityGroup $nsg -Name ark `
-    -Description "ark" -Access "Allow" -Protocol * -Direction "Inbound" `
+add-azurermnetworksecurityruleconfig -NetworkSecurityGroup $nsg -Name 6049 `
+    -Description "6049" -Access "Allow" -Protocol * -Direction "Inbound" `
     -Priority "200" -SourceAddressPrefix "Internet" -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 7777
+    -DestinationAddressPrefix * -DestinationPortRange 6049
 
-add-azurermnetworksecurityruleconfig -NetworkSecurityGroup $nsg -Name "ark_raw_udp" `
-    -Description "ark_raw_udp" -Access "Allow" -Protocol * -Direction "Inbound" `
+    add-azurermnetworksecurityruleconfig -NetworkSecurityGroup $nsg -Name 3389 `
+    -Description "3389" -Access "Allow" -Protocol * -Direction "Inbound" `
     -Priority "300" -SourceAddressPrefix "Internet" -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 7778
-
-add-azurermnetworksecurityruleconfig -NetworkSecurityGroup $nsg -Name "ark_rcon" `
-    -Description "ark_rcon" -Access "Allow" -Protocol * -Direction "Inbound" `
-    -Priority "400" -SourceAddressPrefix "Internet" -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 27020
-
+    -DestinationAddressPrefix * -DestinationPortRange 3389
 
 
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
+
+Remove-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg
 
