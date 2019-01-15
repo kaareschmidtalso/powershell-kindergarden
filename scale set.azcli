@@ -1,0 +1,11 @@
+az vmss create \
+    --resource-group demomaskiner \
+    --name scaledemo1 \
+    --image demoBase-image-1 \
+    --authentication-type password \
+    --admin-username alsodemouser \
+    --admin-password ALSOD3m0P@ssw0rd123 \
+    --instance-count 5 \
+    --public-ip-per-vm \
+    --vm-sku Standard_D4s_v3 \
+    --storage-sku premium_LRS
