@@ -11,7 +11,7 @@ $sub = "DONOTDELETE"
 $rg = "azureBackupSrvRG"
 
 #Name of vm
-$vmName = "azureBackupSrv"
+$vmName = "dataserver1"
 #-----------------------
 
 #select subscription

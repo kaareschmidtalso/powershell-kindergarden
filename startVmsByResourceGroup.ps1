@@ -11,12 +11,8 @@ $VMs = get-azurermvm -ResourceGroupName $RGName
 
 Workflow Start-VMs
 {
-    Parallel
-    {
-        foreach ($vm in $VMs)
+    foreach -parallel ($vm in $VMs)
         {
             start-azurermvm -name $vm.Name -ResourceGroupName $vm.ResourceGroupName
-        }  
-    }
-
+        }
 }
