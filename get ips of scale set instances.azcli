@@ -1,0 +1,1 @@
+az vmss nic list --resource-group demomaskiner2 --vmss-name "demoscaleset3"
