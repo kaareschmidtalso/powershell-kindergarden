@@ -1,3 +1,7 @@
+#first connect service principal to Azure
+
+
+
 $Username = "su"
 $Password = "password"
 
