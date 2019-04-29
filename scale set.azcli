@@ -1,3 +1,4 @@
+#create scale set
 az vmss create \
     --resource-group demomaskiner \
     --name scaledemo1 \
@@ -9,3 +10,8 @@ az vmss create \
     --public-ip-per-vm \
     --vm-sku Standard_D4s_v3 \
     --storage-sku premium_LRS
+
+
+
+#get IP of every instance in scale set (if they have one)
+az vmss list-instance-public-ips --resource-group workshop --name workshopscale2 | grep -w "ipAddress"
