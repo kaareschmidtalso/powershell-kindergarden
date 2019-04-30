@@ -15,3 +15,4 @@ az vmss create \
 
 #get IP of every instance in scale set (if they have one)
 az vmss list-instance-public-ips --resource-group workshop --name workshopscale2 | grep -w "ipAddress"
+C0mput3rKungfu
