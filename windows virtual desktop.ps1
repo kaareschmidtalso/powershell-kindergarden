@@ -24,4 +24,6 @@ $svcPrincipal.AppId
 #application ID = 8a303c08-633f-4d59-a13e-25fe172f7e1c
 
 
-
+#new Remote App Group
+#New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
+New-RdsAppGroup -TenantName alsoacademy -HostPoolName hostpool1 -Name appGroup1 -ResourceType "RemoteApp"
